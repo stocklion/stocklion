@@ -5,8 +5,6 @@ IndustryGroup:
 Industry:
 에너지 시설 및 서비스
 석유 및 가스
-
-
 Sector: 
 소재 
 IndustryGroup: 
@@ -17,7 +15,6 @@ Industry:
 용기 및 포장
 금속 및 광물
 종이 및 목재
-
 Sector:
 산업재 
 IndustryGroup:
@@ -30,12 +27,10 @@ Industry:
 기계
 무역
 조선
-
 IndustryGroup:
 상업서비스
 Industry:
 상업서비스
-
 IndustryGroup:
 운송
 Industry:
@@ -43,7 +38,6 @@ Industry:
 해상운수
 육상운수
 운송인프라
-
 Sector:
 경기소비재 
 IndustryGroup:
@@ -51,7 +45,6 @@ IndustryGroup:
 Industry:
 자동차부품
 자동차
-
 IndustryGroup:
 내구 소비재 및 의류
 Industry:
@@ -63,19 +56,16 @@ IndustryGroup:
 Industry:
 호텔 및 레저
 교육
-
 IndustryGroup:
 미디어
 Industry:
 미디어
-
 IndustryGroup:
 유통
 Industry:
 도소매
 온라인쇼핑
 백화점
-
 Sector:
 필수소비재 
 IndustryGroup:
@@ -84,26 +74,22 @@ Industry:
 음료
 식료품
 담배
-
 IndustryGroup:
 생활용품
 Industry:
 가정생활용품
 개인생활용품
-
 Sector:
 의료 
 IndustryGroup:
 의료장비 및 서비스
 Industry:
 의료장비 및 서비스
-
 IndustryGroup:
 제약 및 바이오
 Industry:
 바이오
 제약
-
 Sector:
 금융 
 IndustryGroup:
@@ -116,22 +102,18 @@ IndustryGroup:
 Industry:
 창업투자 및 종금
 소비자 금융
-
 IndustryGroup:
 보험
 Industry:
 보험
-
 IndustryGroup:
 부동산
 Industry:
 부동산
-
 IndustryGroup:
 증권
 Industry:
 증권
-
 Sector:
 IT 
 IndustryGroup:
@@ -141,7 +123,6 @@ Industry:
 IT 서비스
 일반 소프트웨어
 게임 소프트웨어
-
 IndustryGroup:
 하드웨어
 Industry:
@@ -156,12 +137,10 @@ IndustryGroup:
 반도체
 Industry:
 반도체 및 관련장비
-
 IndustryGroup:
 디스플레이
 Industry:
 디스플레이 및 관련부품
-
 Sector:
 통신서비스 
 IndustryGroup:
@@ -169,7 +148,6 @@ IndustryGroup:
 Industry:
 유선통신
 무선통신
-
 Sector:
 유틸리티
 IndustryGroup:

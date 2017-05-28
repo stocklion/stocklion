@@ -18,27 +18,26 @@ industry = nil
 
 File.open("industry.txt") do |x|
    x.each_line do |line|
-      if line.strip! == "Sector:"
-	 sector = 1
+      temp = line.strip
+      if temp == "Sector:"
+	 sector = "1"
 	 next
-      elsif line.strip! == "IndustryGroup:"
-	 industryGroup = 1
+      elsif temp == "IndustryGroup:"
+	 industryGroup = "1"
 	 next
-      elsif line.strip! == "Industry:"
-	 industry = 1
+      elsif temp == "Industry:"
+	 industry = "1"
       	 next
       end
       
-      if sector == 1
-	sector = line
+      if sector == "1"
+	sector = temp
 	next
-      elsif industryGroup == 1
-        industryGroup = line
+      elsif industryGroup == "1"
+        industryGroup = temp
       	next
-      elsif industry == 1
-        industry = line
       else
-	industry = line
+	industry = temp
       end      
 
       industryData = Industry.new(sectorName:sector, industryGroup:
@@ -337,7 +336,7 @@ File.open("stockList.txt") do |f|
     
     ## ---------- Populate CashFlow table ----------
     # ---------- Parse Annual CashFlow Statement and save data --------
-    @tabl = @page.css('table-us_table_ty1')[5]
+    @tabl = @page.css('table.us_table_ty1')[4]
     @data = @tabl.css('tr').css('td')
   
     dataNames = [:cashFlowsFromOperatingActivities, :netIncomeForTheYear, :continuingIncomeAndLossBeforeIncomeTaxes, :additionOfExpensesOfNonCashTransactions, :retirementBenefits,
@@ -453,7 +452,7 @@ File.open("stockList.txt") do |f|
   
   
     # ---------- Parse Quarterly Cash Flow Statement and save data ----------
-    @tabl = @page.css('table.us_table_ty1')[6]
+    @tabl = @page.css('table.us_table_ty1')[5]
     @data = @tabl.css('tr').css('td')
     
     column_set = 0
