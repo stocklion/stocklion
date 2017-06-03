@@ -1,0 +1,250 @@
+
+
+
+<nav class="navbar fixed-top navbar-toggleable-md navbar-light glass" style="padding: 20px 20px 20px 20px;" >
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+        <a class="navbar-brand" href="/" style="color: rgb(242, 131, 107); font-weight: bold;">주식사자</a>
+        <div class="collapse navbar-collapse" id="navbarExample">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242, 131, 107); font-weight: bold;" href="#">주식 비교</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242,
+131, 107); font-weight: bold;" href="exploration">주식 선택</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242, 131, 107); font-weight: bold;" href="#">내 포트폴리오</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242, 131, 107);" href="#">우리는</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242, 131, 107);" href="#">Methodology</a>
+                </li>
+                <li class="nav-item ml-4">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">로그인</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container video-container d-flex justify-content-center d-flex align-items-center"
+     style="height: 100vh; width: 100vw; margin: 0 0 0 0; padding: 0 0 0 0;" id="white">
+
+
+    <!-- Page Content -->
+
+
+    <section class="centered">
+        <header class=" text-center" style="color: rgb(242, 131, 107);">
+            <h1 class="text-center mb-5 pb-1" style="color: rgb(242, 131, 107); font-size: 7vh; font-weight: bold">
+                주식은 <span class="element"></span>
+            </h1>
+        </header>
+
+        <form action="" class="d-flex justify-content-center d-flex align-items-center select2-choice"
+              style="display: block; width: 70%; margin: 0 auto; font-size: 30px;" method = "get">
+            <select class="js-example-basic-multiple form-control-lg col-md-4 " multiple="multiple" name="search"
+                    type="text" style="width: 100%; height: 100px;" >
+
+                <!--Use Ruby to iterate thru all the stock lists and give information here (in an ascending order)-->
+                <option value="AK">063080</option>
+                <option value="HI">158118</option>
+                <option value="CA">060480</option>
+                <option value="NV">060310</option>
+                <option value="OR">069140</option>
+                <option value="WA">135160</option>
+                <option value="AZ">158151</option>
+                <option value="CO">130891</option>
+                <option value="ID">151281</option>
+                <option value="MT">532489</option>
+                <option value="NE">429135</option>
+                <option value="NM">315895</option>
+                <option value="ND">315213</option>
+                <option value="UT">135818</option>
+                <option value="WY">151415</option>
+            </select>
+        </form>
+        <!--
+    <form class="form">
+        <input class="form-control form-control-lg col-lg-8 mx-auto " name="search" type="text" placeholder="주식..."
+               style="height: 70px">
+    </form>
+    -->
+
+        <div class="text-center">
+            <button type="button" class="btn btn-outline-success mt-5 pt-1 text-center pt-3 pr-3 pl-3 pb-3" style=""
+                    id="bottomLink">차근차근 시작해 볼 각
+            </button>
+        </div>
+
+    </section>
+
+    <canvas id="canvas" style="height: 100vh;
+    width: 100vw;"></canvas>
+    <script>
+        var DEFAULT_DATASET_SIZE = 7;
+        var addedCount = 0;
+        var color = Chart.helpers.color;
+        var bubbleChartData = {
+            animation: {
+                duration: 1000000
+            },
+            datasets: [{
+                backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+                data: [{
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }]
+            }, {
+                backgroundColor: color(window.chartColors.orange).alpha(0.5).rgbString(),
+                data: [{
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }]
+            }]
+        };
+        window.onload = function () {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myChart = new Chart(ctx, {
+                type: 'bubble',
+                data: bubbleChartData,
+                defaultFontFamily: "'Nanum Gothic', 'Noto Sans', sans-serif",
+                options: {
+                    legend: {
+                        display: false
+                    },
+                    responsive: true,
+                    tooltips: {
+                        mode: 'point'
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: false
+                        }],
+                        yAxes: [{
+                            display: false
+                        }]
+                    }
+                }
+            });
+        };
+        document.getElementById('canvas').addEventListener('mouseenter', function () {
+            bubbleChartData.datasets.forEach(function (dataset) {
+                dataset.data = dataset.data.map(function () {
+                    return {
+                        x: randomScalingFactor(),
+                        y: randomScalingFactor(),
+                        r: Math.abs(randomScalingFactor()) / 5,
+                    };
+                });
+            });
+            window.myChart.update();
+        });
+        var colorNames = Object.keys(window.chartColors);
+        document.getElementById('canvas').addEventListener('mouseenter', function () {
+            if (addedCount >= 10) {
+                // don't add
+            }
+            else {
+                ++addedCount;
+                var colorName = colorNames[bubbleChartData.datasets.length % colorNames.length];
+                var dsColor = window.chartColors[colorName];
+                var newDataset = {
+                    backgroundColor: color(dsColor).alpha(0.5).rgbString(),
+                    data: []
+                };
+                for (var index = 0; index < DEFAULT_DATASET_SIZE; ++index) {
+                    newDataset.data.push({
+                        x: randomScalingFactor(),
+                        y: randomScalingFactor(),
+                        r: Math.abs(randomScalingFactor()) / 5,
+                    });
+                }
+                bubbleChartData.datasets.push(newDataset);
+                window.myChart.update();
+            }
+        });
+    </script>
+
+    <!--
+<video autoplay loop class="fillWidth">
+    <source src="assets/New-York-Sky/MP4/New-York-Sky.mp4" type="video/mp4"/>
+    Your browser does not support the video tag. I suggest you upgrade your browser.
+    <source src="assets/New-York-Sky/WEBM/New-York-Sky.webm" type="video/webm"/>
+    Your browser does not support the video tag. I suggest you upgrade your browser.
+</video>
+<div class="videoFilter"></div>
+-->
+
+
+    <!-- /.container -->
+
+</div>
+
+<!-- Footer -->
+<footer class="py-5" id="red">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; 주식사자</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+

@@ -1,0 +1,258 @@
+/*!
+ * Start Bootstrap - Modern Business (http://startbootstrap.com/template-overviews/modern-business)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ */
+
+.navbar-toggler {
+    z-index: 1;
+}
+
+@media (max-width: 576px) {
+    nav > .container {
+        width: 100%;
+    }
+}
+
+/* Temporary fix for img-fluid sizing within the carousel */
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+    display: block;
+}
+
+/*
+    for the blinking cursor
+ */
+
+.typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+nav.glass{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+@media only screen and (max-width: 480px) {
+    nav.glass{
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+
+#canvas{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+*{
+    font-family: 'Nanum Gothic', 'Noto Sans', sans-serif;
+
+    /*
+        for hardware acceleration:
+     */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    /*
+    border: 1px solid black;
+    */
+}
+
+.mainIntroText{
+    /*font-family: 'Nanum Pen Script', serif;
+     */
+    font-size: 150%;
+
+}
+
+.emphasized{
+    font-size: 350%;
+}
+html, body{
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+@media (min-width: 992px) {
+    /*
+    body {
+        padding-top: 56px;
+    }
+    */
+}
+
+#green{
+    background-color: #63A69F;
+}
+
+#red{
+    /*background-color: #F2836B;
+     */
+    background-color: rgb(242, 131, 107);
+}
+
+#orange{
+    background-color: #EB7F00;
+}
+
+#yellow{
+    background-color: #F2E1AC;
+}
+
+#white{
+    background-color: #fff;
+}
+
+.text-red{
+    color: rgb(242, 131, 107);
+}
+
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    z-index: -2;
+    position: absolute;
+    background: rgba(99, 166, 159, 0.4);
+    width: 100%;
+}
+
+.videoFilter{
+    width: 140%;
+    height: 140%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    background-color: rgba(255, 255, 255, 1);
+}
+.video-container video {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+.centered{
+    width: 100%;
+}
+
+#bottomLink{
+    font-size: 140%;
+}
+#bottomLink{
+    font-size: 140%;
+    color: rgb(116, 196, 160);
+}
+#bottomLink:hover{
+    font-size: 140%;
+    color: #FFF;
+
+}
+
+.col-center{
+    margin:0 auto;
+}
+
+.select2-choice {
+    box-sizing: border-box;
+    display: block!important;
+    white-space: nowrap!important;
+    line-height: 65px!important;
+}
+
+select{
+    font-size: 30px!important;
+}
+
+a.fade_bottom{
+    border-bottom: 1px solid rgba(196, 110, 105, 0);
+
+    -webkit-transition: border 350ms ease;
+    -moz-transition: border 350ms ease;
+    -ms-transition: border 350ms ease;
+    -o-transition: border 350ms ease;
+    transition: border 350ms ease;
+}
+
+a.fade_bottom:hover{
+    border-bottom: 1px solid rgba(196, 110, 105, 1);
+}

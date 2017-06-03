@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <!--d-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>주식::사자 - 초보자인 당신과 함께하는 든든한 지원군</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+crossorigin="anonymous">
+    <script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+crossorigin="anonymous"></script>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!--Css for Select2.js-->
+    <link rel="stylesheet" type="text/css"
+href="https://cdn.jsdelivr.net/select2/4.0.3/css/select2.css">
+    <link rel="stylesheet" type="text/css"
+href="https://cdn.jsdelivr.net/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css">
+
+    <!-- Select2.js -->    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <!--Chart.js
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>-->
+    <%= javascript_include_tag "Chart.bundle.min"%>
+    <%= javascript_include_tag "utils"%>
+
+    <!-- Custom styles for this template -->
+    <%= stylesheet_link_tag "modern-business"%>
+
+
+    <!-- Fonts -->
+    <!--NANUM GOTHIC-->
+    <link rel="stylesheet" type="text.css" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <!--NOTO SANS FOR BACKUP-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" type="text.css" rel="stylesheet">
+    <!--Nanum pen font-->
+    <link rel="stylesheet" type="text.css" href="//fonts.googleapis.com/earlyaccess/nanumpenscript.css">
+
+
+    <!-- Temporary navbar container fix -->
+    <style>
+    </style>
+
+    <!--JS-->
+    <script>
+    </script>
+
+    <!--Typed.js-->
+    <%= javascript_include_tag "typed.js"%>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Typed.new('.element', {
+                strings: ["쉽다.", "재밌다.", "부담없다."],
+                stringsElement: null,
+                // typing speed
+                typeSpeed: 200,
+                // time before typing starts
+                startDelay: 0,
+                // backspacing speed
+                backSpeed: 200,
+                // shuffle the strings
+                shuffle: false,
+                // time before backspacing
+                backDelay: 500,
+                // loop
+                loop: true,
+                // null = infinite
+                loopCount: null,
+                // show cursor
+                showCursor: true,
+                // character for cursor
+                cursorChar: "|",
+                // attribute to type (null == text)
+                attr: null,
+                // either html or text
+                contentType: 'html',
+                // call when done callback function
+                callback: function () {
+                },
+                // starting callback function before each string
+                preStringTyped: function () {
+                },
+                //callback for every typed string
+                onStringTyped: function () {
+                },
+                // callback for reset
+                resetCallback: function () {
+                }
+            });
+        });
+    </script>
+
+    <!--Select2-->
+    <script>
+        $(document).ready(function () {
+            $(".js-example-basic-multiple").select2({
+                theme: "bootstrap",
+                placeholder: "주식 검색"
+            });
+        }); //document ready
+        $(document).ready (function checkSubmit(e) {
+            if(e && e.keyCode == 13) {
+                document.forms[0].submit();
+            }
+        });
+    </script>
+
+</head>
+
+<body class="homepage-hero-module" style="background-color: #FFF;">
+	<%= yield %>
+</body>
+
+
+</html>

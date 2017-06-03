@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--d-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>주식::사자 - 초보자인 당신과 함께하는 든든한 지원군</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <!--Css for Select2.js-->
+    <link rel="stylesheet" type="text/css"
+href="https://cdn.jsdelivr.net/select2/4.0.3/css/select2.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css"/>
+
+    <!-- Custom styles for this template -->
+    <%= stylesheet_link_tag "modern-business"%>
+    <%= stylesheet_link_tag "stock-selection"%>
+
+    <!--CSS styles for dragula.js-->
+    <%= stylesheet_link_tag "dragula.min" %>
+    <%= stylesheet_link_tag "dragula-in-use" %>
+
+
+    <!-- tipped.js -->
+    <%= javascript_include_tag "tipped"%>
+    <%= stylesheet_link_tag "tipped"%>
+
+    <!-- Fonts -->
+    <!--NANUM GOTHIC-->
+    <link rel="stylesheet" type="text.css" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <!--NOTO SANS FOR BACKUP-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" type="text.css" rel="stylesheet">
+    <!--Nanum pen font-->
+    <link rel="stylesheet" type="text.css" href="//fonts.googleapis.com/earlyaccess/nanumpenscript.css">
+
+    <!-- Temporary-->
+    <style>
+        .fullH{
+            height:100vh;
+        }
+        html, body{
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body class="homepage-hero-module" style="background-color: #FFF">
+	<%= yield %>
+</body>
+</html>

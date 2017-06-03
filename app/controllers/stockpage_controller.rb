@@ -1,0 +1,2 @@
+class StockpageController < ApplicationController
+end

@@ -1,0 +1,89 @@
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        $("a").tooltip();
+    })
+</script>
+<!-- Navigation -->
+
+<nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-light glass" style="padding: 20px 20px 20px 20px;" >
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+        <a class="navbar-brand" href="/" style="color: rgb(242, 131, 107); font-weight: bold;">주식사자</a>
+        <div class="collapse navbar-collapse" id="navbarExample">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242, 131, 107); font-weight: bold;" href="#">주식 비교</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242,
+131, 107); font-weight: bold;" href="exploration">주식 선택</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242, 131, 107); font-weight: bold;" href="#">내 포트폴리오</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242, 131, 107);" href="#">우리는</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link fade_bottom" style="color: rgb(242, 131, 107);" href="#">Methodology</a>
+                </li>
+                <li class="nav-item ml-4">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">로그인</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class = "container-fluid d-flex justify-content-around fullH">
+
+    <!--middle container-->
+    <section class = "container bg-faded">
+        <h2 class = "selectStock mt-4">주식 선택</h2>
+        <div class="alert alert-info mt-4 pt-4 mr-3 ml-3 selectStockAlert" role="alert">
+            <h4 class="alert-heading">주식 선택은 3 단계로 분류돼요.</h4>
+            <ol>
+                <li>업종 선택: 블라 블라 블라 블라 어쩌구 저쩌구 재쩌구 우쩌구. 나는 말 같지만 사실 말이 아니에요. 단지 더미 텍스트일 뿐. </li>
+                <li>분류항목 선택: 블라 블라 블라 블라 어쩌구 저쩌구 재쩌구 우쩌구. 나는 말 같지만 사실 말이 아니에요. 단지 더미 텍스트일 뿐.</li>
+                <li>회사 선택: <a href="#" data-toggle="tooltip" title="" data-original-title="Default tooltip" class = "jargon-tooltip">ROIC</a>                       블라 블라 블라 블라 어쩌구 저쩌구 재쩌구 우쩌구. 나는 말 같지만 사실 말이 아니에요. 단지 더미 텍스트일 뿐.
+                </li>
+            </ol>
+        </div>
+    </section>
+    <!--right container-->
+    <section class = "container-fluid rightContainer" id = "left-rm-spill">
+        <div class="alert alert-info col-center warning rightDialog" id = "first" role="alert">
+            <strong>팁</strong> </br> 모르는 전문용어가 있으면 클릭해주세요. 클릭한 후에 그 용어를 계속 화면에 띄워놓고 싶으시다면 화면 우측이나 좌축으로 드래그하시면 됩니다.
+            왜 이런 기능이 있냐구요? 우리는 모두 초보니까요! 만약에 용어가 친숙해졌을 때는, 그 땐 바로 닫아버리고 계속 주식을 보면 되는거죠!
+        </div>
+
+        <div class="alert alert-warning col-center warning rightDialog" id = "second" role="alert">
+            <strong>알아둘 점</strong> </br> 주식사자(주)에서 제공하는 금융정보는 각 컨텐츠 제공업체제공업체 상세설명부터 받는 정보로 투자 참고 사항이며, 오류가 발생할 수 있고 지연될 수
+            있습니다. 주식사자(주)는 제공된 정보에 의한 투자결과에 대한 법적인 책임을 지지 않습니다. 게시된 정보를 무단으로 배포할 수 없습니다.
+        </div>
+
+        <div class="alert alert-success col-center warning rightDialog" id = "third" role="alert">
+            <strong>P/E 비율</strong> </br> 일반적으로, 수익성장률의 절반에 해당하는 P/E비율은 매우 긍정적인 신호이고, 수익성장률의 두배에 해당하는 P/E비율은 매우 부정적인 신호이다.
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-5" id="red">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; 주식사자</p>
+    </div>
+    <!-- /.container --> </footer>
+
+
+    <!--Javascript for dragula-->
+    <%= javascript_include_tag "dragula"%>
+    <%= javascript_include_tag "dragulaInUse" %>
+
