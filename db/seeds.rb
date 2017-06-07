@@ -105,7 +105,7 @@ File.open("stockList.txt") do |f|
     year = 2014
     quarter = 0
     
-    4.times {
+    3.times {
       yearx_is = Array.new
       
       @data.each do |i|
@@ -236,7 +236,7 @@ File.open("stockList.txt") do |f|
     year = 2014
     quarter = 0
     
-    4.times {
+    3.times {
       yearx_bs = Array.new
       
       @data.each do |i|
@@ -376,7 +376,7 @@ File.open("stockList.txt") do |f|
     quarter = 0
   
   
-    4.times {
+    3.times {
       yearx_bs = Array.new
   
       @data.each do |i|
