@@ -30,7 +30,7 @@ class CreateBalances < ActiveRecord::Migration[5.1]
       t.integer   :otherNonCurrentAssets #기타비유동자산
       t.integer   :otherFinancialInstitutionsAssets #기타금융업자산
     
-      t.integer   :libailities #부채
+      t.integer   :liabilities #부채
       t.integer   :currentLiabilities #유동부채
       t.integer   :sTCorporateBonds #단기사채
       t.integer   :sTBorrowings #단기차입금

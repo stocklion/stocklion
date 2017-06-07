@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605075009) do
+ActiveRecord::Schema.define(version: 20170607031952) do
 
   create_table "balances", force: :cascade do |t|
     t.integer "year"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170605075009) do
     t.integer "lTcurrentTaxAssets"
     t.integer "otherNonCurrentAssets"
     t.integer "otherFinancialInstitutionsAssets"
-    t.integer "libailities"
+    t.integer "liabilities"
     t.integer "currentLiabilities"
     t.integer "sTCorporateBonds"
     t.integer "sTBorrowings"
@@ -225,6 +225,15 @@ ActiveRecord::Schema.define(version: 20170605075009) do
     t.integer "increaseInCashAndCashEquivalents"
     t.integer "cashAndCashEquivalentsAtTheBeginningOfYear"
     t.integer "cashAndCashEquivalentsAtTheEndOfYear"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "debt_to_equities", force: :cascade do |t|
+    t.integer "year"
+    t.integer "quarter"
+    t.integer "stock_id"
+    t.float "ratio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

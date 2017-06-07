@@ -1,0 +1,2 @@
+class DebtToEquity < ApplicationRecord
+end
