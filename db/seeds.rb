@@ -47,17 +47,28 @@ industryGroup, industryName: industry)
    end
 end
 
-
+skip = 0
 ### ---------- Populate Stock table ----------
 File.open("stockList.txt") do |f|
   f.each_line do |line|
-    stockCode = line.strip!
+
+    puts "#{line}"
+    if line.strip! == "Finance"
+  	skip = 1
+	next
+    elsif line.strip! == "Other"
+	skip = 2
+	next
+    end
+
+    stockCode = line.strip
     #stockCode_mod = stockCode.tr('A', '')
     @page = Nokogiri::HTML(open('https://comp.fnguide.com/SVO2/asp/SVD_Finance.asp?pGB=1&gicode='+stockCode+'&cID=&MenuYn=Y&ReportGB=&NewMenuID=103&stkGb=701',  :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
     @text = @page.css('div.corp_group1')
 
     fics = @text.css('p.stxt_group').css('span.stxt.stxt2').text.tr('FICS','').tr('\u00A0', ' ').strip
     #kse = @text.css('p.stxt_group').css('span.stxt.stxt1').text.tr('KSE','').tr('\u00A0', '')
+    puts "Industry name for stock #{stockCode} is #{fics}"
 
     @industry_finder = Industry.all
     @industry_finder.each do |x|
@@ -67,8 +78,19 @@ File.open("stockList.txt") do |f|
     end
 
     stockName = @text.css('h1#giName').text.strip
+    puts "Saving #{@industry_id} as industry name for stock #{stockCode}"
     stockxData = Stock.new(stockCode: stockCode, stockName: stockName, industry_id: @industry_id)
     stockxData.save
+
+    if skip == 1
+	
+
+    end
+
+
+
+
+
 
 =begin
     @service_key = 'wBBTcgyoRrkPkO%2B7q4VMnJL3z8RWXNkmcWIH76to4AsrxcIMHd%2FE0rKDGwYijI06WNKX4HVqhtq6fp4i96IvIw%3D%3D'
@@ -538,8 +560,7 @@ File.open("stockList.txt") do |f|
       end
       column_set += 1
     }
-    
-  end
+  end    
   
   
 end
