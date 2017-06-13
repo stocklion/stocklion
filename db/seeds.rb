@@ -13,38 +13,37 @@ require 'open-uri'
 
 ### ---------- Populate Industry table ----------
 sector = nil
-industryGroup = nil
+industry_group = nil
 industry = nil
 
 File.open("industry.txt") do |x|
-   x.each_line do |line|
-      temp = line.strip
-      if temp == "Sector:"
-	 sector = "1"
-	 next
-      elsif temp == "IndustryGroup:"
-	 industryGroup = "1"
-	 next
-      elsif temp == "Industry:"
-	 industry = "1"
-      	 next
-      end
-      
-      if sector == "1"
-	sector = temp
-	next
-      elsif industryGroup == "1"
-        industryGroup = temp
-      	next
-      else
-	industry = temp
-      end      
+  x.each_line do |line|
+    temp = line.strip
+    if temp == "Sector:"
+      sector = "1"
+      next
+    elsif temp == "IndustryGroup:"
+      industry_group = "1"
+      next
+    elsif temp == "Industry:"
+      industry = "1"
+      next
+    end
 
-      industryData = Industry.new(sectorName:sector, industryGroup:
-industryGroup, industryName: industry)
-      industryData.save 
+    if sector == "1"
+      sector = temp
+      next
+    elsif industry_group == "1"
+      industry_group = temp
+      next
+    else
+      industry = temp
+    end
 
-   end
+    industryData = Industry.new(sectorName:sector, industryGroup:
+        industry_group, industryName: industry)
+    industryData.save
+  end
 end
 
 skip = 0
