@@ -53,11 +53,11 @@ File.open("stockList.txt") do |f|
 
     puts "#{line}"
     if line.strip! == "Finance"
-  	skip = 1
-	next
+  	  skip = 1
+	    next
     elsif line.strip! == "Other"
-	skip = 2
-	next
+	    skip = 2
+	    next
     end
 
     stockCode = line.strip
@@ -82,7 +82,6 @@ File.open("stockList.txt") do |f|
     stockxData.save
 
     if skip == 1
-	
 
     end
 
@@ -229,8 +228,8 @@ File.open("stockList.txt") do |f|
 
       quarter += 1
       if quarter==5 
-	quarter = 1
-	year += 1
+	      quarter = 1
+        year += 1
       end
       column_set += 1
     }
@@ -245,7 +244,7 @@ File.open("stockList.txt") do |f|
                  :assetHeldforSaleorDisposalGroup, :nonCurrentAssets, :pPE, :intangibleAssets, :nonCurrentBiologicalAssets, :investmentPeroperties,
                  :lTFinancialAssets, :InvestmentsAssociates_Subsidiaries_JointVentures, :lTtradeRecievables_and_otherCurrentRecievables, :deferredTaxAssets,
                  :lTcurrentTaxAssets, :otherNonCurrentAssets,
-:otherFinancialInstitutionsAssets, :liabilities, :currentLiabilities, :sTCorporateBonds,
+                 :otherFinancialInstitutionsAssets, :liabilities, :currentLiabilities, :sTCorporateBonds,
                  :sTBorrowings, :currentLTliabilites, :currentFinancialLiabilities, :accountsPayable_otherCurrentPayables, :currentProvisionsforEmployeeBenefits,
                  :otherSTProvisions, :currentTaxLiabilities, :otherCurrentLiablities, :assetHeldforSaleorDisposalGroupLiabilities, :nonCurrentLiabilities,
                  :corporateBonds, :lTBorrowings, :nonCurrentFinancialLiabilities, :lTaccountsPayable_otherCurrentPayables, :nonCurrentProvisionsforEmployeeBenefits,
@@ -348,9 +347,9 @@ File.open("stockList.txt") do |f|
       yearxData.save
 
       quarter += 1
-      if quarter==5 
-	quarter = 1
-	year += 1
+      if quarter==5
+        quarter = 1
+        year += 1
       end
       column_set += 1
     }
@@ -553,13 +552,11 @@ File.open("stockList.txt") do |f|
       yearxData.save
     
       quarter += 1
-      if quarter==5 
-	quarter = 1
-	year += 1
+      if quarter==5
+        quarter = 1
+        year += 1
       end
       column_set += 1
     }
-  end    
-  
-  
+  end
 end
