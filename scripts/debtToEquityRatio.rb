@@ -22,10 +22,9 @@ debtRatio = 0
 	debtRatio = (debt.to_f / equity)
 
 	puts "Saving stock_id #{stockid} year #{year} quarter #{quarter}
-debt to equity ratio #{debtRatio} to DebtToEquity table" 
+				debt to equity ratio #{debtRatio} to DebtToEquity table"
 
-	dte = DebtToEquity.new(year: year, quarter: quarter, stock_id: stockid,
-ratio: debtRatio)
+	dte = DebtToEquity.new(year: year, quarter: quarter, stock_id: stockid, ratio: debtRatio)
 	dte.save	
 end
 
