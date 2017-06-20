@@ -55,7 +55,7 @@ class CreateBalances < ActiveRecord::Migration[5.1]
       t.integer   :otherNonCurrentLiabilities #기타비유동부채
       t.integer   :otherFinancialInstitutionsLiabilities #기타금융업부채
     
-      t.integer   :ShareholderEquity #자본
+      t.integer   :shareholderEquity #자본
       t.integer   :ownersofParentEquity #지배기업주주지분
       t.integer   :capitalStock #자본금
       t.integer   :structuredCapitalSecurities #신종자본증권

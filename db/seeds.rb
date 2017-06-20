@@ -249,7 +249,7 @@ File.open("stockList.txt") do |f|
                  :otherSTProvisions, :currentTaxLiabilities, :otherCurrentLiablities, :assetHeldforSaleorDisposalGroupLiabilities, :nonCurrentLiabilities,
                  :corporateBonds, :lTBorrowings, :nonCurrentFinancialLiabilities, :lTaccountsPayable_otherCurrentPayables, :nonCurrentProvisionsforEmployeeBenefits,
                  :otherLTProvisions, :deferredTaxALiabilities, :lTcurrentTaxLiabilities, :otherNonCurrentLiabilities, :otherFinancialInstitutionsLiabilities,
-                 :ShareholderEquity, :ownersofParentEquity, :capitalStock, :structuredCapitalSecurities, :capitalSurplus, :otherReserves,
+                 :shareholderEquity, :ownersofParentEquity, :capitalStock, :structuredCapitalSecurities, :capitalSurplus, :otherReserves,
                  :accumulatedOtherComprehensiveIncome, :retainedEarnings, :nonControllingInterestsEquity]
     
     column_set = 0
