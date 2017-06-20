@@ -12,7 +12,7 @@ debtRatio = 0
 	year = b.year
 	quarter = b.quarter
 	stockid = b.stock_id
-	equity = b.ShareholderEquity
+	equity = b.shareholderEquity
 	debt = b.liabilities
 
 	if equity == nil 
@@ -25,7 +25,17 @@ debtRatio = 0
 				debt to equity ratio #{debtRatio} to DebtToEquity table"
 
 	dte = DebtToEquity.new(year: year, quarter: quarter, stock_id: stockid, ratio: debtRatio)
-	dte.save	
+	dte.save
+
+  netIncome = Income.find{|i| i.stock_id == stockid}.netIncome
+  returntoEquity = (netIncome.to_f / equity)
+
+	puts "Saving stock_id #{stockid} year #{year} quarter #{quarter}
+				return to equity ratio #{returntoEquity} to ReturnToEquity table"
+
+  roe = ReturnToEquity.new(year: year, quarter: quarter, stock_id: stockid, ratio: returntoEquity)
+  roe.save
+
 end
 
 

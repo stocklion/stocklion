@@ -67,7 +67,7 @@ File.open("stockList.txt") do |f|
 
     fics = @text.css('p.stxt_group').css('span.stxt.stxt2').text.tr('FICS','').tr('\u00A0', ' ').strip
     #kse = @text.css('p.stxt_group').css('span.stxt.stxt1').text.tr('KSE','').tr('\u00A0', '')
-    puts "Industry name for stock #{stockCode} is #{fics}"
+    #puts "Industry name for stock #{stockCode} is #{fics}"
 
     @industry_finder = Industry.all
     @industry_finder.each do |x|
@@ -306,7 +306,7 @@ File.open("stockList.txt") do |f|
     column_set = 0
     column_count = 0
     year = 2016
-    quarter = 1
+    quarter = 2
 
     4.times {
       yearx_bs = Array.new
@@ -479,7 +479,7 @@ File.open("stockList.txt") do |f|
     column_set = 0
     column_count = 0
     year = 2016
-    quarter = 1
+    quarter = 2
     
     4.times {
       yearx_bs = Array.new
