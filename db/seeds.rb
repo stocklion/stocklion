@@ -47,6 +47,9 @@ File.open("industry.txt") do |x|
 end
 
 skip = 0
+
+
+
 ### ---------- Populate Stock table ----------
 File.open("stockList.txt") do |f|
   f.each_line do |line|
@@ -62,8 +65,9 @@ File.open("stockList.txt") do |f|
 
     stockCode = line.strip
     #stockCode_mod = stockCode.tr('A', '')
-    @page = Nokogiri::HTML(open('https://comp.fnguide.com/SVO2/asp/SVD_Finance.asp?pGB=1&gicode='+stockCode+'&cID=&MenuYn=Y&ReportGB=&NewMenuID=103&stkGb=701',  :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
-    @text = @page.css('div.corp_group1')
+
+    @page_fs = Nokogiri::HTML(open('https://comp.fnguide.com/SVO2/asp/SVD_Finance.asp?pGB=1&gicode='+stockCode+'&cID=&MenuYn=Y&ReportGB=&NewMenuID=103&stkGb=701', :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
+    @text = @page_fs.css('div.corp_group1')
 
     fics = @text.css('p.stxt_group').css('span.stxt.stxt2').text.tr('FICS','').tr('\u00A0', ' ').strip
     #kse = @text.css('p.stxt_group').css('span.stxt.stxt1').text.tr('KSE','').tr('\u00A0', '')
@@ -103,7 +107,7 @@ File.open("stockList.txt") do |f|
 
 ### ---------- Populate Financial table ----------
     # ---------- Parse Annual Income Statement and save data ----------
-    @tabl = @page.css('table.us_table_ty1')[0]
+    @tabl = @page_fs.css('table.us_table_ty1')[0]
     @data = @tabl.css('tr').css('td')
     
     dataNames = [:revenue, :costOfGoodsSold, :grossProfit, :sellAdminExpense, :employeeSalary, :depreciation_amortization,
@@ -174,7 +178,7 @@ File.open("stockList.txt") do |f|
     }
 
     # ---------- Parse Quarterly Income Statement and save data ----------
-    @tabl = @page.css('table.us_table_ty1')[1]
+    @tabl = @page_fs.css('table.us_table_ty1')[1]
     @data = @tabl.css('tr').css('td')
 
     column_set = 0
@@ -236,7 +240,7 @@ File.open("stockList.txt") do |f|
 
 ### ---------- Populate Balance table ---------- 
     # ---------- Parse Annual Balance Sheet and save data ----------
-    @tabl = @page.css('table.us_table_ty1')[2]
+    @tabl = @page_fs.css('table.us_table_ty1')[2]
     @data = @tabl.css('tr').css('td')
     
     dataNames = [:assets, :currentAssets, :inventories, :currentBiologicalAssets, :currentFinancialAssets,
@@ -300,7 +304,7 @@ File.open("stockList.txt") do |f|
     }
 
     # ---------- Parse Quarterly Balance Sheet and save data ----------
-    @tabl = @page.css('table.us_table_ty1')[3]
+    @tabl = @page_fs.css('table.us_table_ty1')[3]
     @data = @tabl.css('tr').css('td')
 
     column_set = 0
@@ -357,7 +361,7 @@ File.open("stockList.txt") do |f|
     
     ## ---------- Populate CashFlow table ----------
     # ---------- Parse Annual CashFlow Statement and save data --------
-    @tabl = @page.css('table.us_table_ty1')[4]
+    @tabl = @page_fs.css('table.us_table_ty1')[4]
     @data = @tabl.css('tr').css('td')
   
     dataNames = [:cashFlowsFromOperatingActivities, :netIncomeForTheYear, :continuingIncomeAndLossBeforeIncomeTaxes, :additionOfExpensesOfNonCashTransactions, :retirementBenefits,
@@ -473,7 +477,7 @@ File.open("stockList.txt") do |f|
   
   
     # ---------- Parse Quarterly Cash Flow Statement and save data ----------
-    @tabl = @page.css('table.us_table_ty1')[5]
+    @tabl = @page_fs.css('table.us_table_ty1')[5]
     @data = @tabl.css('tr').css('td')
     
     column_set = 0
