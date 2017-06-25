@@ -3,7 +3,8 @@ class CreatePrices < ActiveRecord::Migration[5.1]
     create_table :prices do |t|
 
       t.integer :stock_id
-      t.float :price_clo
+      t.float   :price_clo
+      t.date    :date
       t.timestamps
     end
   end

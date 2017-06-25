@@ -1,4 +1,6 @@
 @sto = Stock.all
+require 'date'
+@date = Date.today
 
 File.open("stockList.txt") do |f|
   f.each_line do |line|
@@ -20,8 +22,8 @@ File.open("stockList.txt") do |f|
     @sto.each do |s|
       if s.stockCode == stockCode
         stockid = s.id
-        puts "Saving #{price} as last closing price for stock #{stockid} in Price table"
-        stockPrice = Price.new(stock_id: stockid, price_clo: price)
+        puts "Saving #{price} as last closing price for stock #{stockid} on #{@date} in Price table"
+        stockPrice = Price.new(stock_id: stockid, price_clo: price, date: @date)
         stockPrice.save
       else
         next
