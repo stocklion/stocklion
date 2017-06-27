@@ -145,8 +145,23 @@ File.open("stockList.txt") do |f|
           column_count=0
         end
       end
-      
-      yearxData = Income.new(stock_id: stockxData.id, year: year, quarter: quarter, dataNames[0] => yearx_is[0], dataNames[1] => yearx_is[1],
+
+      # flagging for abnormalty - change both the code below and the flag: flag to erase
+      if (((yearx_is[40].to_f/yearx_is[71].to_i) > 0.1) and (yearx_is[40].to_f != 0))  or (((yearx_is[55].to_f/yearx_is[71].to_i) > 0.1) and (yearx_is[55].to_f != 0))
+        if (((yearx_is[70].to_f/yearx_is[71].to_i) > 0.1) and (yearx_is[70].to_f != 0))
+          flag = 3
+        else
+          flag = 1
+        end
+      else
+        if (((yearx_is[70].to_f/yearx_is[71].to_i) > 0.1) and (yearx_is[70].to_f != 0))
+          flag = 2
+        else
+          flag = 0
+        end
+      end
+
+      yearxData = Income.new(flag: flag, stock_id: stockxData.id, year: year, quarter: quarter, dataNames[0] => yearx_is[0], dataNames[1] => yearx_is[1],
                                 dataNames[2] => yearx_is[2], dataNames[3] => yearx_is[3],dataNames[4] => yearx_is[4],
                                 dataNames[5] => yearx_is[5],dataNames[6] => yearx_is[6], dataNames[7] => yearx_is[7],
                                 dataNames[8] => yearx_is[8], dataNames[9] => yearx_is[9],dataNames[10] => yearx_is[10],
@@ -203,7 +218,22 @@ File.open("stockList.txt") do |f|
         end
       end
 
-      yearxData = Income.new(stock_id: stockxData.id, year: year, quarter: quarter, dataNames[0] => yearx_is[0], dataNames[1] => yearx_is[1],
+      # flagging for abnormalty - change both the code below and the flag: flag to erase
+      if (((yearx_is[40].to_f/yearx_is[71].to_i) > 0.1) and (yearx_is[40].to_f != 0))  or (((yearx_is[55].to_f/yearx_is[71].to_i) > 0.1) and (yearx_is[55].to_f != 0))
+        if (((yearx_is[70].to_f/yearx_is[71].to_i) > 0.1) and (yearx_is[70].to_f != 0))
+          flag = 3
+        else
+          flag = 1
+        end
+      else
+        if (((yearx_is[70].to_f/yearx_is[71].to_i) > 0.1) and (yearx_is[70].to_f != 0))
+          flag = 2
+        else
+          flag = 0
+        end
+      end
+
+      yearxData = Income.new(flag: flag, stock_id: stockxData.id, year: year, quarter: quarter, dataNames[0] => yearx_is[0], dataNames[1] => yearx_is[1],
                                 dataNames[2] => yearx_is[2], dataNames[3] => yearx_is[3],dataNames[4] => yearx_is[4],
                                 dataNames[5] => yearx_is[5],dataNames[6] => yearx_is[6], dataNames[7] => yearx_is[7],
                                 dataNames[8] => yearx_is[8], dataNames[9] => yearx_is[9],dataNames[10] => yearx_is[10],
