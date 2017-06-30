@@ -11,6 +11,8 @@ require 'nokogiri'
 require 'open-uri'
 
 
+puts "------------------------Initiating Seed--------------------------"
+
 ### ---------- Populate Industry table ----------
 sector = nil
 industry_group = nil
@@ -49,7 +51,6 @@ end
 skip = 0
 
 
-
 ### ---------- Populate Stock table ----------
 File.open("stockList.txt") do |f|
   f.each_line do |line|
@@ -72,12 +73,36 @@ File.open("stockList.txt") do |f|
     fics = @text.css('p.stxt_group').css('span.stxt.stxt2').text.tr('FICS','').tr('\u00A0', ' ').strip
     #kse = @text.css('p.stxt_group').css('span.stxt.stxt1').text.tr('KSE','').tr('\u00A0', '')
     #puts "Industry name for stock #{stockCode} is #{fics}"
-
+=begin
     @industry_finder = Industry.all
     @industry_finder.each do |x|
       if x.industryName == fics
+	puts "Industry Found #{x.industryName}"
         @industry_id = x.id
       end
+    end
+=end
+
+    puts "Checking #{fics}"
+    #hello = "섬유 및 의복" == fics
+    fics = fics.gsub(" ", "")
+    
+    fics.each_byte do |c|
+	puts c
+    end
+
+    puts "섬유 및 의복"
+
+    "섬유 및 의복".each_byte do |c|
+	puts c
+    end
+
+    @indList = Industry.all
+    puts @indList
+    @indList.each do |i|
+        if i.industryName.gsub(" ", "") == fics
+            @industry_id = i.id
+        end
     end
 
     stockName = @text.css('h1#giName').text.strip
@@ -85,14 +110,7 @@ File.open("stockList.txt") do |f|
     stockxData = Stock.new(stockCode: stockCode, stockName: stockName, industry_id: @industry_id)
     stockxData.save
 
-    if skip == 1
-
-    end
-
-
-
-
-
+    if skip == 0
 
 =begin
     @service_key = 'wBBTcgyoRrkPkO%2B7q4VMnJL3z8RWXNkmcWIH76to4AsrxcIMHd%2FE0rKDGwYijI06WNKX4HVqhtq6fp4i96IvIw%3D%3D'
@@ -592,5 +610,19 @@ File.open("stockList.txt") do |f|
       end
       column_set += 1
     }
-  end
+   end
+   end
+
+   if skip == 1
+
+   end
+
+
+   if skip == 2
+
+   end
+
+
+
+
 end

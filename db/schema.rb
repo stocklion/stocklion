@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607031952) do
+ActiveRecord::Schema.define(version: 20170625041549) do
 
   create_table "balances", force: :cascade do |t|
     t.integer "year"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20170607031952) do
     t.integer "lTcurrentTaxLiabilities"
     t.integer "otherNonCurrentLiabilities"
     t.integer "otherFinancialInstitutionsLiabilities"
-    t.integer "ShareholderEquity"
+    t.integer "shareholderEquity"
     t.integer "ownersofParentEquity"
     t.integer "capitalStock"
     t.integer "structuredCapitalSecurities"
@@ -242,6 +242,7 @@ ActiveRecord::Schema.define(version: 20170607031952) do
     t.integer "year"
     t.integer "quarter"
     t.integer "stock_id"
+    t.integer "flag"
     t.integer "revenue"
     t.integer "costOfGoodsSold"
     t.integer "grossProfit"
@@ -328,7 +329,32 @@ ActiveRecord::Schema.define(version: 20170607031952) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "price_to_earnings", force: :cascade do |t|
+    t.date "date"
+    t.integer "stock_id"
+    t.float "ratio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.integer "stock_id"
+    t.float "price_clo"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ratios", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "return_to_equities", force: :cascade do |t|
+    t.integer "year"
+    t.integer "quarter"
+    t.integer "stock_id"
+    t.float "ratio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
