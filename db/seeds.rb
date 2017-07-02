@@ -86,19 +86,17 @@ File.open("stockList.txt") do |f|
     puts "Checking #{fics}"
     #hello = "섬유 및 의복" == fics
     fics = fics.gsub(" ", "")
-    
+=begin
     fics.each_byte do |c|
 	puts c
     end
-
-    puts "섬유 및 의복"
-
+=end
+=begin
     "섬유 및 의복".each_byte do |c|
 	puts c
     end
-
+=end
     @indList = Industry.all
-    puts @indList
     @indList.each do |i|
         if i.industryName.gsub(" ", "") == fics
             @industry_id = i.id
@@ -110,7 +108,6 @@ File.open("stockList.txt") do |f|
     stockxData = Stock.new(stockCode: stockCode, stockName: stockName, industry_id: @industry_id)
     stockxData.save
 
-    if skip == 0
 
 =begin
     @service_key = 'wBBTcgyoRrkPkO%2B7q4VMnJL3z8RWXNkmcWIH76to4AsrxcIMHd%2FE0rKDGwYijI06WNKX4HVqhtq6fp4i96IvIw%3D%3D'
@@ -146,15 +143,30 @@ File.open("stockList.txt") do |f|
     column_count = 0
     year = 2014
     quarter = 0
-    
+    itemCounter = 0
+ 
     3.times {
       yearx_is = Array.new
       
       @data.each do |i|
         if column_set == column_count
           tabl_data = i.text.strip.gsub(/[\s,]/ ,"")
-          yearx_is.push(tabl_data)
-          column_count += 1
+	  if (skip==1) && (itemCounter == 9) || (itemCounter == 10) || (itemCounter ==
+55) || (itemCounter == 56) || (itemCounter == 57) || (itemCounter ==  59)
+		yearx_is.push(tabl_data)
+	  end
+
+	  if (skip==2) && (itemCounter == 1) || (itemCounter == 11) ||
+(itemCounter == 21) && (itemCounter == 66) && (itemCounter == 67) ||
+(itemCounter == 68) && (itemCounter == 70)
+		yearx_is.push(tabl_data)
+	  end
+	  
+          if skip == 0
+               yearx_is.push(tabl_data)
+          end
+	  column_count += 1
+	  itemCounter += 1
         else
           column_count += 1
         end
@@ -179,7 +191,14 @@ File.open("stockList.txt") do |f|
         end
       end
 
-      yearxData = Income.new(flag: flag, stock_id: stockxData.id, year: year, quarter: quarter, dataNames[0] => yearx_is[0], dataNames[1] => yearx_is[1],
+      if skip == 1
+      	yearxData = Income.new(flag: flag, stock_id: stockxData.id, year:
+year, quarter: quarter, dataNames[1] => yearx_is[0], dataNames[2] => yearx_is[1], dataNames[67] => yearx_is[2], dataNames[68] => yearx_is[3], dataNames[69] => yearx_is[4], dataNames[71] => yearx_is[5])
+          yearxData.save
+      end
+
+      if skip == 0
+         yearxData = Income.new(flag: flag, stock_id: stockxData.id, year: year, quarter: quarter, dataNames[0] => yearx_is[0], dataNames[1] => yearx_is[1],
                                 dataNames[2] => yearx_is[2], dataNames[3] => yearx_is[3],dataNames[4] => yearx_is[4],
                                 dataNames[5] => yearx_is[5],dataNames[6] => yearx_is[6], dataNames[7] => yearx_is[7],
                                 dataNames[8] => yearx_is[8], dataNames[9] => yearx_is[9],dataNames[10] => yearx_is[10],
@@ -204,8 +223,17 @@ File.open("stockList.txt") do |f|
                                 dataNames[65] => yearx_is[65],dataNames[66] => yearx_is[66], dataNames[67] => yearx_is[67],
                                 dataNames[68] => yearx_is[68], dataNames[69] => yearx_is[69],dataNames[70] => yearx_is[70],
                                 dataNames[71] => yearx_is[71],dataNames[72] => yearx_is[72], dataNames[73] => yearx_is[73])
-      yearxData.save
-      
+          yearxData.save
+      end
+
+      if skip == 2
+	yearxData = Income.new(flag: flag, stock_id: stockxData.id, year:
+year, quarter: quarter, dataNames[0] => yearx_is[0], dataNames[1] =>
+yearx_is[1], dataNames[12] => yearx_is[2], dataNames[67] => yearx_is[3], dataNames[68] => yearx_is[4], dataNames[69] => yearx_is[5], dataNames[71] => yearx_is[6])
+          yearxData.save
+
+      end
+
       year += 1
       column_set += 1
     }
@@ -610,17 +638,16 @@ File.open("stockList.txt") do |f|
       end
       column_set += 1
     }
-   end
-   end
+ end
 
-   if skip == 1
+ if skip == 1
 
-   end
+ end
 
 
-   if skip == 2
+ if skip == 2
 
-   end
+ end
 
 
 
